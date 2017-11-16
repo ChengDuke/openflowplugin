@@ -18,6 +18,7 @@ import org.opendaylight.openflowjava.nx.codec.action.OutputRegCodec;
 import org.opendaylight.openflowjava.nx.codec.action.RegLoadCodec;
 import org.opendaylight.openflowjava.nx.codec.action.RegMoveCodec;
 import org.opendaylight.openflowjava.nx.codec.action.ResubmitCodec;
+import org.opendaylight.openflowjava.nx.codec.action.SetNextHopCodec;
 import org.opendaylight.openflowjava.nx.codec.action.PushNshCodec;
 import org.opendaylight.openflowjava.nx.codec.action.PopNshCodec;
 import org.opendaylight.openflowjava.nx.codec.match.ArpOpCodec;
@@ -97,6 +98,10 @@ public class NiciraExtensionsRegistrator implements AutoCloseable {
         registrator.registerActionDeserializer(ConntrackCodec.DESERIALIZER_KEY, NiciraActionCodecs.CONNTRACK_CODEC);
         registrator.registerActionSerializer(LearnCodec.SERIALIZER_KEY, NiciraActionCodecs.LEARN_CODEC);
         registrator.registerActionDeserializer(LearnCodec.DESERIALIZER_KEY, NiciraActionCodecs.LEARN_CODEC);
+        
+        registrator.registerActionSerializer(SetNextHopCodec.SERIALIZER_KEY, NiciraActionCodecs.SET_NEXT_HOP_CODEC);
+        registrator.registerActionDeserializer(SetNextHopCodec.DESERIALIZER_KEY, NiciraActionCodecs.SET_NEXT_HOP_CODEC);
+        
         // Continue
 
         registrator.registerMatchEntrySerializer(Reg0Codec.SERIALIZER_KEY, NiciraMatchCodecs.REG0_CODEC);

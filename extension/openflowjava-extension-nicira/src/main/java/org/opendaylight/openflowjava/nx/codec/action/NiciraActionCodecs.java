@@ -26,4 +26,6 @@ public class NiciraActionCodecs {
     public static final ConntrackCodec CONNTRACK_CODEC = new ConntrackCodec();
     public static final LearnCodec LEARN_CODEC = new LearnCodec();
     public static final FinTimeoutCodec FIN_TIMEOUT_CODEC = new FinTimeoutCodec();
+    
+    public static final SetNextHopCodec SET_NEXT_HOP_CODEC = new SetNextHopCodec();
 }

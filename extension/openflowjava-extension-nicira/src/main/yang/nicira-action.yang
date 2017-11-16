@@ -45,6 +45,20 @@ module nicira-action {
     identity nxm-nx-learn {
         base ofaction:experimenter-action-sub-type;
     }
+    identity nxm-nx-nexthop {
+    	base ofaction:experimenter-action-sub-type;
+    }
+    
+    grouping ofj-nx-action-set-next-hop-grouping {
+    	container nx-set-next-hop {
+    		leaf next-hop {
+    			type string;
+    		}
+    		leaf experimenter-id {
+                type oft:experimenter-id;
+            }
+    	}
+    }
 
     grouping ofj-nx-action-reg-load-grouping {
         container nx-action-reg-load {
@@ -392,6 +406,9 @@ module nicira-action {
 
     augment "/ofaction:action-container/ofaction:action-choice" {
         ext:augment-identifier "ofj-aug-nx-action";
+    	case action-set-next-hop {
+    		uses ofj-nx-action-set-next-hop-grouping;
+    	}
         case action-reg-load {
             uses ofj-nx-action-reg-load-grouping;
         }
